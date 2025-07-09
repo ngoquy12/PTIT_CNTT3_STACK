@@ -18,18 +18,6 @@ int isFull(Stack *s){
     return s->top == MAX - 1;
 }
 
-// Thêm phần tử vào Stack
-//void push(Stack *s, int value){
-//    // Trước khi push thì cần kiẻerm tra xem stack có đủ bọ nhớ không
-//    if(isFull(s)){
-//        printf("Stack đã bị đầy!");
-//        return;
-//    }
-//
-//    // Nếu Stack còn bộ nhớ thì tiến hành thêm vào
-//    s->data[++s->top] = value;
-//}
-
 // Hàm thêm phân tử là ký tự vào trong Stack
 void push(Stack *s, char character){
     // Trước khi push thì cần kiẻerm tra xem stack có đủ bọ nhớ không
@@ -150,24 +138,19 @@ int main(void) {
     Stack s;
     initialStack(&s);
 
-//    push(&s, 10);
-//    push(&s, 20);
-//    push(&s, 30);
-//    push(&s, 40);
-//    push(&s, 50);
-//    push(&s, 60);
-//
-//    printElements(&s);
-//
-//    printf("\n");
-//
-//    printf("Phan tu o dinh: %d\n", peek(&s)); // 60
-//    printf("Lay phan tu: %d\n", pop(&s)); // 60
-//    printf("Lay phan tu: %d\n", pop(&s)); // 50
-//    printf("Phan tu o dinh: %d\n", peek(&s)); // 40
-//    printf("Phan tu o dinh: %d\n", peek(&s)); // 40
-//    printf("Lay phan tu: %d\n", pop(&s)); // 40
-//    printf("Phan tu o dinh: %d\n", peek(&s)); // 30
+    char stringInput[MAX];
+
+    printf("Nhap chuoi can kiem tra: ");
+    fgets(stringInput, sizeof (stringInput), stdin);
+    stringInput[strcspn(stringInput, "\n")] = '\0'; // Xóa dấu xuống dòng
+
+    // Gọi hàm kiểm tra tính hợp lệ của biu thức
+    if (isValidBrackets(&s, stringInput)){
+        printf("Bieu thuc hop le");
+    } else {
+        printf("Bieu thuc khong hop le");
+    }
+
 
     return 0;
 }

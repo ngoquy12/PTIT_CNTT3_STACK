@@ -3,4 +3,5 @@ project(Stack C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(Stack main.c)
+add_executable(Stack main.c
+        Exercise07.c)
